@@ -97,7 +97,7 @@ export default function CreateMovimentacao() {
             conta_origem_id: contaOrigemEncontrada.id,
             conta_destino_id: contaDestinoEncontrada.id,
             descricao,
-            data_movimentacao: dataMovimentacao.toISOString() // envia ISO 8601 completo
+            data_movimentacao: dataMovimentacao.toISOString().slice(0, 19).replace('T', ' ')
         };
 
         Client.post('movimentacoes', movimentacao)
